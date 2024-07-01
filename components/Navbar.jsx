@@ -18,17 +18,17 @@ export const Navbar = () => {
       {/* Desktop Navigation */}
       <ul className='hidden md:flex'>
         <li >
-          <Link href="#" className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100' >
+          <Link href="/" className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100' >
             HOME
           </Link>
         </li>
         <li>
-          <Link href="#" className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
+          <Link href="/" className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
             ABOUT
           </Link>
         </li>
         <li >
-          <Link href="#" title='Read my Blog' className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
+          <Link href="/" title='Read my Blog' className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
             BLOG
           </Link>
         </li>
