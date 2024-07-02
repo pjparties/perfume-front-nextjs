@@ -1,4 +1,5 @@
 # TODO
+
     - [x] Landing Page, with search bar
     - [x] Navbar and Footer
     - [ ] Fuzzy search for perfume name, brand name, accords fuse.js
