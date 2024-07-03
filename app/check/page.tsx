@@ -21,7 +21,7 @@ interface Perfume {
   main_accords: string
 }
 
-export default function PerfumeSearch() {
+export default function PerfumeSearchPage() {
   const [data, setData] = useState<Perfume[]>([])
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Perfume[]>([])
@@ -32,12 +32,11 @@ export default function PerfumeSearch() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/get_all_perfumes') // Replace with your API URL
+        const response = await fetch('http://localhost:5000/api/get_all_perfumes')
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
         const perfumes: Perfume[] = await response.json()
-        // Create a combined name field for searching
         perfumes.forEach((perfume, index) => {
           perfume.combined_name = `${perfume.brand} ${perfume.perfume}`
           perfume.key = index
@@ -65,7 +64,6 @@ export default function PerfumeSearch() {
 
   const handleSearch = () => {
     setShowSuggestions(false)
-    // Implement actual search functionality here
     console.log('Searching for:', query)
   }
 
@@ -83,8 +81,8 @@ export default function PerfumeSearch() {
   }, [dropdownRef])
 
   return (
-    <div className="search-container mx-auto p-4 !bg-white !text-black w-3/5 ">
-      <div className="search-bar relative">
+    <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="search-container relative">
         <Input
           ref={inputRef}
           type="text"
@@ -94,23 +92,23 @@ export default function PerfumeSearch() {
             setShowSuggestions(true)
           }}
           onFocus={() => setShowSuggestions(true)}
-          placeholder="Search perfumes..."
-          className="w-full !bg-white py-2 px-4 rounded-full border-2 border-gray-200 focus:outline-none focus:border-blue-500"
+          placeholder="Search Perfumes to get recommendations..."
+          className="w-full !bg-white py-3 px-4 rounded-full border-2 border-gray-200 focus:outline-none focus:border-blue-500"
         />
         <Button
           onClick={handleSearch}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-150 ease-in-out"
         >
           Search
         </Button>
       </div>
-      <div className="dropdown">
+      <div className="dropdown w-full">
         {showSuggestions && results.length > 0 && (
-          <Card ref={dropdownRef} className="absolute z-10 w-3/5 max-w-2xl mt-1 !bg-white shadow-lg !text-black rounded-lg overflow-hidden">
+          <Card ref={dropdownRef} className="absolute z-10 w-3/4 mt-1 !bg-white shadow-lg rounded-lg overflow-hidden">
             {results.map((item) => (
               <Link href={`/recommendation/${item.key}`}
                 key={item.key}
-                className="p-2 hover:bg-gray-100 cursor-pointer flex items-center"
+                className="p-3 hover:bg-gray-100 cursor-pointer flex items-center transition duration-150 ease-in-out"
                 onClick={() => {
                   setQuery(item.perfume)
                   setShowSuggestions(false)
@@ -120,12 +118,12 @@ export default function PerfumeSearch() {
                 <Image
                   src={item.image_url}
                   alt={item.perfume}
-                  width={40}
-                  height={40}
-                  className="mr-2 rounded"
+                  width={50}
+                  height={50}
+                  className="mr-3 rounded"
                 />
                 <div>
-                  <div className="font-semibold">{item.perfume}</div>
+                  <div className="font-semibold text-gray-900">{item.perfume}</div>
                   <div className="text-sm text-gray-600">{item.brand}</div>
                 </div>
               </Link>
@@ -133,6 +131,6 @@ export default function PerfumeSearch() {
           </Card>
         )}
       </div>
-    </div>
+    </main>
   )
 }
