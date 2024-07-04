@@ -29,6 +29,7 @@ export const SearchBar = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
+  // useEffect to fetch all perfume names from the API for fuzzy search.
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,6 +51,7 @@ export const SearchBar = () => {
     fetchData()
   }, [])
 
+  // fuzzy search logic
   useEffect(() => {
     if (data.length) {
       const fuse = new Fuse(data, {
@@ -67,6 +69,7 @@ export const SearchBar = () => {
     console.log('Searching for:', query)
   }
 
+  // mouse effects to collapse bar when clicked outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -81,7 +84,7 @@ export const SearchBar = () => {
   }, [dropdownRef])
 
   return (
-    <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main className='container z-5 max-w-full'>
       <div className="search-container relative">
         <Input
           ref={inputRef}
@@ -92,19 +95,20 @@ export const SearchBar = () => {
             setShowSuggestions(true)
           }}
           onFocus={() => setShowSuggestions(true)}
-          placeholder="Search Perfumes to get recommendations..."
-          className="w-full !bg-white py-3 px-4 rounded-full border-2 border-gray-200 focus:outline-none focus:border-blue-500"
+          placeholder="Search Perfumes..."
+          className="w-full py-6 px-4 rounded-full border-2 border-gray-200 focus:outline-none"
         />
         <Button
           onClick={handleSearch}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition duration-150 ease-in-out"
+          variant={"default"}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white px-4 py-1 rounded-full transition duration-150 ease-in-out"
         >
           Search
         </Button>
       </div>
       <div className="dropdown w-full">
         {showSuggestions && results.length > 0 && (
-          <Card ref={dropdownRef} className="absolute z-10 w-3/4 mt-1 !bg-white shadow-lg rounded-lg overflow-hidden">
+          <Card ref={dropdownRef} className="z-10 w-full rounded-lg overflow-hidden">
             {results.map((item) => (
               <Link href={`/recommendation/${item.key}`}
                 key={item.key}

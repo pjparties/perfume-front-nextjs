@@ -30,14 +30,14 @@ export const Navbar = () => {
       </ul>
 
       {/* Mobile Navigation Icon */}
-      <div onClick={handleNav} className='block md:hidden z-10'>
+      <div onClick={handleNav} className='block md:hidden z-20'>
         {nav ? <AiOutlineClose size={20} className='text-primary' /> : <AiOutlineMenu size={20} className='text-primary' />}
       </div>
       {/* Mobile Navigation Menu */}
       <ul
         className={
           nav
-            ? 'fixed md:hidden z-0 top-0 w-[100%] bg-background ease-in-out duration-500 h-[100%] left-0 flex flex-col items-center justify-center'
+            ? 'fixed md:hidden z-10 top-0 w-[100%] bg-white ease-in-out duration-500 h-[100%] left-0 flex flex-col items-center justify-center'
             : 'md:hidden ease-in-out w-[100%] left-0 flex flex-col items-center justify-center -z-10 duration-500 fixed bottom-0 top-[-200%] '
         }
       >
