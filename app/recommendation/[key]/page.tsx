@@ -83,7 +83,7 @@ export default function Recommendation() {
 
   return (
     <>
-      <div className="container mx-auto px-4 md:px-6 py-8">
+      <div className="container grow mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between mb-6">
           <SearchBar />
         </div>

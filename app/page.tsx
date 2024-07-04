@@ -28,17 +28,17 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="flex flex-col min-h-[86vh]">
+    <div className="flex flex-col grow justify-center">
       <main className="flex bg-background py-14 px-6">
         <div className="max-w-2xl mx-auto flex flex-col items-center gap-6">
-          <h1 className="text-4xl font-bold text-center">Find Your Signature Scent</h1>
-          <p className="text-muted-foreground text-lg text-center">Search for your favorite perfumes to find alternatives and fragrances that will give the same vibes.</p>
-          <div className="w-full flex flex-col gap-4">
+          <h1 className="text-2xl md:text-4xl font-bold text-center">Find Your Signature Scent</h1>
+          <p className="text-muted-foreground text-base md:text-lg text-center">Search for your favorite perfumes to find alternatives and fragrances that will give the same vibes.</p>
+          <div className="w-full flex flex-col gap-4 md:gap-12">
             <div className="flex items-center gap-4">
               <SearchBar />
             </div>
             {/* suggested perfumes */}
-            <div className="flex flex-wrap gap-2 justify-center">
+            <div className="flex flex-wrap gap-1 md:gap-2 justify-center">
               {displayScents.map((scent) => (
                 <Link key={scent.key} href={`/recommendation/${encodeURIComponent(scent.key)}`}>
                   <Button
@@ -55,7 +55,7 @@ export default function Home() {
               <Link href={`/recommendation/${randomKey}`}>
                 <Button
                   variant="ghost"
-                  className="rounded-full bg-muted text-muted-foreground px-4 py-2 hover:bg-muted-90 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary flex items-center gap-2"
+                  className="rounded-full boerder-muted border-2 bg-muted text-muted-foreground px-4 py-2 hover:bg-muted-90 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary flex items-center gap-2"
                 >
                   Suggest Me A Random Perfume
                   <ArrowRight className="h-4 w-4" />

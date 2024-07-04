@@ -112,7 +112,7 @@ export const SearchBar = () => {
             {results.map((item) => (
               <Link href={`/recommendation/${item.key}`}
                 key={item.key}
-                className="p-3 hover:bg-gray-100 cursor-pointer flex items-center transition duration-150 ease-in-out"
+                className="p-1 md:p-3 hover:bg-gray-100 cursor-pointer flex items-center transition duration-150 ease-in-out"
                 onClick={() => {
                   setQuery(item.perfume)
                   setShowSuggestions(false)
