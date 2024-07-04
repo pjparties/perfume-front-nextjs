@@ -51,6 +51,7 @@ export default function Recommendation() {
   const [no_of_recs, setNoOfRecs] = useState<number>(8);
   const key = Number(usePathname()?.split("/")[2]);
 
+  // fetch searched perfume and recommended perfumes
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -91,8 +92,8 @@ export default function Recommendation() {
         {searchedPerfume && (
           <div className="mb-6">
             <p className="flex items-center mb-2 text-muted-foreground">Recommendations based on:</p>
-            <div className=" bg-background rounded-lg shadow-md overflow-hidden w-fit h-20 flex items-center px-4 mb-6">
-              <div className="searchedperfumecard flex items-center">
+            <div className=" bg-background rounded-lg shadow-md overflow-hidden w-fit h-20 flex items-center px-4 mb-6 hover:shadow-2xl">
+              <Link href={`/product/${key}`} className="searchedperfumecard flex items-center">
                 <Image
                   src={searchedPerfume.image_url}
                   alt={`${searchedPerfume.brand} ${searchedPerfume.perfume}`}
@@ -104,7 +105,7 @@ export default function Recommendation() {
                   <h3 className="text-sm md:text-lg font-medium">{searchedPerfume.brand}</h3>
                   <h3 className="text-sm md:text-lg font-medium">{searchedPerfume.perfume}</h3>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         )}

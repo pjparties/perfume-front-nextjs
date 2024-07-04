@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Perfume {
   key: number;
@@ -53,8 +54,8 @@ export default function Product(): JSX.Element {
   }
 
   return (
-    <>
-      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-background">
+    <div className="main min-h-[89vh] lg:min-h-[87vh]">
+      <div className="flex flex-col md:flex-row items-center justify-center bg-background">
         {/* product image */}
         <div className="max-w-md w-full px-4 py-8 md:mr-8">
           <Image
@@ -89,11 +90,13 @@ export default function Product(): JSX.Element {
             </div>
           </div>
           {/* buy now button */}
-          <Button size="lg" className="mt-6">
-            Buy Now
-          </Button>
+          <Link href={`https://www.jomashop.com/search?q=${perfume.brand}%20${perfume.perfume}`}>
+            <Button size="lg" className="mt-6">
+              Buy Now
+            </Button>
+          </Link>
         </div>
       </div>
-    </>
+    </div>
   )
 }
