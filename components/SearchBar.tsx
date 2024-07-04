@@ -84,7 +84,7 @@ export const SearchBar = () => {
   }, [dropdownRef])
 
   return (
-    <main className='container z-5 max-w-full'>
+    <div className='container max-w-full relative'>
       <div className="search-container relative">
         <Input
           ref={inputRef}
@@ -106,7 +106,7 @@ export const SearchBar = () => {
           Search
         </Button>
       </div>
-      <div className="dropdown w-full">
+      <div className="dropdown w-full mt-1 absolute">
         {showSuggestions && results.length > 0 && (
           <Card ref={dropdownRef} className="z-10 w-full rounded-lg overflow-hidden">
             {results.map((item) => (
@@ -135,6 +135,6 @@ export const SearchBar = () => {
           </Card>
         )}
       </div>
-    </main>
+    </div>
   )
 }

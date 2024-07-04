@@ -11,7 +11,7 @@ export const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className='bg-background font-mono text-primary-foreground py-4 px-6 flex items-center justify-between'>
+    <div className='navbar bg-background font-mono text-primary-foreground py-4 px-6 flex items-center justify-between'>
       <Link href="/" className="text-xl text-black font-bold" prefetch={false}>
         Perfume Finder
       </Link>
@@ -43,12 +43,12 @@ export const Navbar = () => {
       >
         {/* Mobile Navigation Items */}
         <li className='my-[12px] mr-[1px]'>
-          <Link href="#" className='p-4 hover:text-accent text-lg my-[12px] px-[24px] hover:font-bold text-primary mr-1 py-[10px]  cursor-pointer duration-100'>
+          <Link href="/about" className='p-4 hover:text-accent text-lg my-[12px] px-[24px] hover:font-bold text-primary mr-1 py-[10px]  cursor-pointer duration-100'>
             ABOUT
           </Link>
         </li>
-        <li >
-          <Link href="#" title='Read my Blog' className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
+        <li className='my-[12px] mr-[1px]'>
+          <Link href="https://parth-time-dev.vercel.app/" className='p-4 hover:text-accent text-lg my-[12px] px-[24px] hover:font-bold text-primary mr-1 py-[10px]  cursor-pointer duration-100'>
             BLOG
           </Link>
         </li>
