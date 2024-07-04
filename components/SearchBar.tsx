@@ -21,7 +21,7 @@ interface Perfume {
   main_accords: string
 }
 
-export default function PerfumeSearchPage() {
+export const SearchBar = () => {
   const [data, setData] = useState<Perfume[]>([])
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<Perfume[]>([])
