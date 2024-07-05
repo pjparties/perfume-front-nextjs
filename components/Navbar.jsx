@@ -11,7 +11,7 @@ export const Navbar = () => {
     setNav(!nav);
   };
   return (
-    <div className='navbar bg-background font-mono text-primary-foreground py-4 px-6 flex items-center justify-between'>
+    <div className='navbar font-mono text-primary py-4 px-6 flex items-center justify-between'>
       <Link href="/" className="text-xl text-black font-bold" prefetch={false}>
         Perfume Finder
       </Link>
@@ -37,7 +37,7 @@ export const Navbar = () => {
       <ul
         className={
           nav
-            ? 'fixed md:hidden z-10 top-0 w-[100%] bg-white ease-in-out duration-500 h-[100%] left-0 flex flex-col items-center justify-center'
+            ? 'fixed md:hidden z-10 top-0 w-[100%] bg-background ease-in-out duration-500 h-[100%] left-0 flex flex-col items-center justify-center'
             : 'md:hidden ease-in-out w-[100%] left-0 flex flex-col items-center justify-center -z-10 duration-500 fixed bottom-0 top-[-200%] '
         }
       >

@@ -71,29 +71,51 @@ export default function Product(): JSX.Element {
 
   return (
     <div className="grow py-12 px-8">
-      <div className="max-w-7xl mx-auto bg-white rounded-xl overflow-hidden">
+      <div className="max-w-7xl mx-auto rounded-xl overflow-hidden">
         <div className="lg:flex">
           <div className="lg:w-1/2 flex items-center lg:justify-center lg:px-12 transition-all">
             <Image
               src={perfume.image_url}
-              width={400}
-              height={400}
+              width={375}
+              height={500}
               alt={`${perfume.brand} ${perfume.perfume}`}
-              className="h-48 w-48 md:h-64 md:w-64 lg:h-96 lg:w-96 rounded-lg shadow-xl"
+              className=" rounded-lg shadow-xl "
               priority
             />
           </div>
           <div className="lg:w-1/2 space-y-6">
-            <h2 className="text-7xl text-gray-700 mt-6">{perfume.perfume}</h2>
-            <h1 className="text-3xl font-bold text-gray-900 ">{perfume.brand}</h1>
-            <div>
-              <p className="text-gray-600 text-lg md:text-2xl"><span className="font-semibold">Notes:</span> {perfume.notes}</p>
-              <p className="text-gray-600 text-lg md:text-2xl mt-4 md:mt-8"><span className="font-semibold">Main Accords:</span> {perfume.main_accords}</p>
-              <div className="flex space-x-8 py-8 lg:py-12 lg:justify-center">
-                <ScaleCircle value={Math.round(parseFloat(perfume.sillage)).toString()} label="Sillage" color="#3b82f6" />
-                <ScaleCircle value={Math.round(parseFloat(perfume.longevity)).toString()} label="Longevity" color="#10b981" />
+            <h2 className="text-4xl md:text-7xl font-extrabold text-primaryMuted mt-6">{perfume.perfume}</h2>
+            <h1 className="text-3xl font-extrabold text-primary ">{perfume.brand}</h1>
+            {/* main accords and notes */}
+            <div className="space-y-8">
+              <div className="mainaccords">
+                <h3 className="text-xl font-semibold text-primary mb-3">Main Accords:</h3>
+                <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {perfume.main_accords.split(',').map((accord, index) => (
+                    <li key={index} className="bg-earthYellow rounded-full px-3 py-3 text-center capitalize font-bold text-sm text-primary flex items-center justify-center">
+                      {accord.trim()}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-gray-600 text-lg md:text-2xl"><span className="font-semibold">No. of Reviews:</span> {perfume.reviews}</p>
+              <div className="notesdiv">
+                <h3 className="text-xl font-semibold text-primary mb-3">Notes:</h3>
+                <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {perfume.notes.split(',').map((note, index) => (
+                    <li key={index} className="bg-teaRose rounded-full px-3 py-3 capitalize text-sm font-bold text-primary text-center flex items-center justify-center">
+                      {note.trim()}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* sillage and longevity */}
+              <div className="flex space-x-8 py-8 lg:py-12 justify-center">
+                <ScaleCircle value={Math.round(parseFloat(perfume.sillage)).toString()} label="Sillage" color="#525C70" />
+                <ScaleCircle value={Math.round(parseFloat(perfume.longevity)).toString()} label="Longevity" color="#574141" />
+              </div>
+              <p className="text-gray-700 text-lg">
+                <span className="font-semibold">No. of Reviews:</span> {perfume.reviews}
+              </p>
             </div>
 
             <Link

@@ -84,10 +84,12 @@ export const SearchBar = () => {
   }, [dropdownRef])
 
   return (
-    <div className='container max-w-full relative'>
+    <div className='container max-w-full grow relative'>
+      {/* search bar */}
       <div className="search-container relative">
         <Input
           ref={inputRef}
+          id='search-bar'
           type="text"
           value={query}
           onChange={(e) => {
@@ -98,6 +100,7 @@ export const SearchBar = () => {
           placeholder="Search Perfumes..."
           className="w-full py-6 px-4 rounded-full border-2 border-gray-200 focus:outline-none"
         />
+        {/* search Button */}
         <Button
           onClick={handleSearch}
           variant={"default"}
@@ -106,13 +109,14 @@ export const SearchBar = () => {
           Search
         </Button>
       </div>
+      {/* dropdown */}
       <div className="dropdown w-full mt-1 absolute">
         {showSuggestions && results.length > 0 && (
           <Card ref={dropdownRef} className="z-10 w-full rounded-lg overflow-hidden">
             {results.map((item) => (
               <Link href={`/recommendation/${item.key}`}
                 key={item.key}
-                className="p-1 md:p-3 hover:bg-gray-100 cursor-pointer flex items-center transition duration-150 ease-in-out"
+                className="p-1 md:p-3 hover:bg-secondaryLight cursor-pointer flex items-center transition duration-150 ease-in-out"
                 onClick={() => {
                   setQuery(item.perfume)
                   setShowSuggestions(false)
@@ -127,8 +131,8 @@ export const SearchBar = () => {
                   className="mr-3 rounded"
                 />
                 <div>
-                  <div className="font-semibold text-gray-900">{item.perfume}</div>
-                  <div className="text-sm text-gray-600">{item.brand}</div>
+                  <div className="font-semibold text-primary">{item.perfume}</div>
+                  <div className="text-sm text-primaryMuted">{item.brand}</div>
                 </div>
               </Link>
             ))}

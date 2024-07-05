@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jakarta.className} flex flex-col min-h-screen`}>
+      <body className={`${jakarta.className} flex flex-col min-h-screen bg-background bg-gradient bg-right-top`}>
         <Navbar />
         {children}
         <Footer />
