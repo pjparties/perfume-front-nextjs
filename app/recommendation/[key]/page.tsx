@@ -79,7 +79,7 @@ export default function Recommendation() {
     };
 
     fetchData();
-  }, [key]);
+  }, [key,no_of_recs]);
 
   return (
     <>

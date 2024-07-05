@@ -13,12 +13,12 @@ export default function About() {
                 About Perfume Finder
               </h1>
               <p className="max-w-2xl text-muted-foreground md:text-xl">
-                Perfume Finder filters through a vast database of perfumes to help you find the perfect scent. Whether you're looking for a new signature scent, finding similar to the ones you already love or a gift for a loved one, Perfume Finder has you covered.
+                Perfume Finder filters through a vast database of perfumes to help you find the perfect scent. Whether you&apos;re looking for a new signature scent, finding similar to the ones you already love or a gift for a loved one, Perfume Finder has you covered.
               </p>
               <div className="space-y-4 text-muted-foreground">
                 <h2 className="text-2xl font-semibold">The Method and Techniques</h2>
                 <p>
-                  In building this side project, I've employed various techniques to ensure a robust and scalable application:
+                  In building this side project, I&apos;ve employed various techniques to ensure a robust and scalable application:
                 </p>
                 <ul className="list-disc pl-5 space-y-2">
                   <li><span className="font-semibold">Artificial Intelligence:</span> PerfumeFinder uses Artificial Intelligence to recommend perfumes for your taste. </li>
