@@ -24,7 +24,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ perfume }) => {
   return (
-    <div className="bg-white border border-secondaryLight rounded-lg shadow-2xl overflow-hidden p-2 md:p-4 lg:p-10 transition-all duration-300 hover:shadow-2xl">
+    <div className="bg-white border border-secondaryLight rounded-lg shadow-xl overflow-hidden p-2 md:p-4 lg:p-10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
       <Link href={`/product/${perfume.key}`} className="block" prefetch={false}>
         <div className="pt-2 md:pt-4">
           <Image
@@ -92,7 +92,7 @@ export default function Recommendation() {
         {searchedPerfume && (
           <div className="mb-6">
             <p className="flex items-center mb-2 text-primary font-bold text-xl">Recommendations based on:</p>
-            <div className="bg-white rounded-lg shadow-md overflow-hidden w-fit h-20 flex items-center px-4 mb-6 hover:shadow-2xl">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden w-fit h-20 flex items-center px-4 mb-6 hover:scale-105 transition-all duration-300 ease-in-out hover:shadow-2xl">
               <Link href={`/product/${key}`} className="searchedperfumecard flex items-center">
                 <Image
                   src={searchedPerfume.image_url}
@@ -114,7 +114,7 @@ export default function Recommendation() {
         {isLoading ? (
           <p className="text-center text-muted-foreground">Loading recommendedations. Please Wait...</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-8 justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 justify-items-center">
             {recommendedPerfumes.map((perfume) => (
               <Card key={perfume.key} perfume={perfume} />
             ))}
