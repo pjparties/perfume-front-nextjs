@@ -50,13 +50,14 @@ export default function Recommendation() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [no_of_recs, setNoOfRecs] = useState<number>(8);
   const key = Number(usePathname()?.split("/")[2]);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   // fetch searched perfume and recommended perfumes
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/api/get_perfume_by_key?key=${key}&no_of_recs=${no_of_recs}`);
+        const response = await fetch(`${backendUrl}/api/get_perfume_by_key?key=${key}&no_of_recs=${no_of_recs}`);
         if (!response.ok) throw new Error('Network response was not ok');
         const data: Perfume = await response.json();
         setSearchedPerfume(data);
@@ -64,7 +65,7 @@ export default function Recommendation() {
           const recKeys = JSON.parse(data.recommended_perfumes) as number[];
           const recommendedData = await Promise.all(
             recKeys.slice(0, no_of_recs).map(async (recKey) => {
-              const recResponse = await fetch(`http://localhost:5000/api/get_perfume_by_key?key=${recKey}`);
+              const recResponse = await fetch(`${backendUrl}/api/get_perfume_by_key?key=${recKey}`);
               if (!recResponse.ok) throw new Error('Network response was not ok');
               return recResponse.json();
             })
