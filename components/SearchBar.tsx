@@ -28,12 +28,13 @@ export const SearchBar = () => {
   const [showSuggestions, setShowSuggestions] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   // useEffect to fetch all perfume names from the API for fuzzy search.
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/get_all_perfumes')
+        const response = await fetch(`${backendUrl}/api/get_all_perfumes`)
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
