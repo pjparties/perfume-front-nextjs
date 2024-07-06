@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 interface Perfume {
   key: number;
   brand: string;
@@ -54,7 +56,7 @@ export default function Product(): JSX.Element {
     const fetchData = async (): Promise<void> => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/api/get_perfume_by_key?key=${key}`);
+        const response = await fetch(`${backendUrl}/api/get_perfume_by_key?key=${key}`);
         if (!response.ok) throw new Error('Network response was not ok');
         setPerfume(await response.json());
       } catch (error) {
