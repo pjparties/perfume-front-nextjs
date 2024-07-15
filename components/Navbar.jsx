@@ -23,8 +23,8 @@ export const Navbar = () => {
           </Link>
         </li>
         <li >
-          <Link href="https://parth-time-dev.vercel.app/" title='Read my Blog' className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
-            BLOG
+          <Link href="https://github.com/pjparties/PerfumeFinder" title='Visit Source' className='p-4 hover:text-accent hover:font-bold text-primary mr-1 py-[10px] px-6 cursor-pointer duration-100'>
+            REPO
           </Link>
         </li>
       </ul>
@@ -48,8 +48,8 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className='my-[12px] mr-[1px]'>
-          <Link href="https://parth-time-dev.vercel.app/" className='p-4 hover:text-accent text-lg my-[12px] px-[24px] hover:font-bold text-primary mr-1 py-[10px]  cursor-pointer duration-100'>
-            BLOG
+          <Link href="https://github.com/pjparties/PerfumeFinder" className='p-4 hover:text-accent text-lg my-[12px] px-[24px] hover:font-bold text-primary mr-1 py-[10px]  cursor-pointer duration-100'>
+            REPO
           </Link>
         </li>
       </ul>
